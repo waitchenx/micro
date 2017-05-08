@@ -1,0 +1,19 @@
+{
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    },
+    "autoload": {
+        "files": [
+            "app/common/function.php"
+        ]
+    },
+    "require": {
+        "nette/http": "^2.4",
+        "nikic/fast-route": "^1.2",
+        "monolog/monolog": "^1.22",
+        "illuminate/database": "^5.4"
+    }
+}

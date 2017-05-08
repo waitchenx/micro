@@ -1,0 +1,10 @@
+/vendor/
+/logs/*
+/cache/
+/LaneWeChat/
+sftp-config.json
+composer.lock
+.idea/
+.settings/
+.buildpath
+.project
