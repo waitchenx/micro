@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 // 获取用户的配置信息.
 $database_config = require __DIR__.'/../config/database.php';
 
@@ -44,6 +44,15 @@ switch ($routeInfo[0]) {
         $vars = $routeInfo[2];
         // ... call $handler with $vars
         // 这里需要读取并且传递到控制器中去.
+        $controller = explode('@',$handler);
+        if(count($controller) == 2){
+            $controller_name = 'App\\Controller\\'.array_shift($controller);
+            // 这里要设置自动加载.
+            $action = array_shift($controller);
+            $request = new \Nette\Http\RequestFactory();
+            $response = new \Nette\Http\Response();
+            $response = (new $controller_name())->$action($request,$response,$vars);
+        }
         break;
     default:
         die('123412');

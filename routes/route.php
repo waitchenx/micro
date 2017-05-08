@@ -1,5 +1,3 @@
 <?php
 
-$route->addRoute('GET','/micro/public/index',function(){
-    echo 'index';exit;
-});
+$route->addRoute('GET','/micro/public/index','HomeController@index');
