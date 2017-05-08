@@ -1,4 +1,16 @@
 {
+    "name": "micro-framework",
+    "description": "micro-framework",
+    "keywords": ["microframework", "rest", "router", "psr7"],
+    "homepage": "http://www.blogme.club",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "adolph",
+            "email": "1138027478@qq.com",
+            "homepage": "http://www.blogme.club"
+        }
+    ],
     "repositories": {
         "packagist": {
             "type": "composer",
@@ -6,14 +18,31 @@
         }
     },
     "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "app/controllers/"
+        },
+        "classmap": ["app/"],
         "files": [
             "app/common/function.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8080 -t public public/index.php",
+        "test": "phpunit"
     },
     "require": {
         "nette/http": "^2.4",
         "nikic/fast-route": "^1.2",
         "monolog/monolog": "^1.22",
-        "illuminate/database": "^5.4"
+        "illuminate/database": "^5.4",
+        "psr/http-message": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.8 < 6.0"
     }
 }
